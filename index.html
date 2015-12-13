@@ -1,8 +1,74 @@
-<html>
- <head>
-  <title>Prueba de PHP</title>
- </head>
- <body>
- <?php echo '<p>Hola Mundo</p>'; ?>
- </body>
+#!/usr/bin/perl -w
+
+use strict;
+
+
+#MODIFICA LAS VARIABLES
+
+my $nombre = 'Uriel Lizama';
+my $sitio = 'www.BaboonSoftware.com';
+my $lema = 'Un buen programador es aquel que con su intelecto puede trabar una maquina con dos lineas de codigo';
+
+#Descomenta la funcion que deseeas probar
+#&html_EOF;
+&html_linea;
+
+
+#Ejemplo de HTML con metodo EOF
+sub html_EOF{
+
+#Le indicamos al sistema que vamos a imprimir HTML a partir
+#de esta linea
+print "Content-type: text/html\n\n";
+
+#Abrimos un campo donde insertaremos el codigo HTML
+print<<EOF;
+<html><head><title>EJEMPLO DE HTML</title></head>
+<body>
+<center><h1>HOLA, <font color="red">$nombre</font></h1></center>
+<br><br>
+Bienvenido a <b>$sitio</b>....<br>
+<br>
+donde <b>$lema</b>
+<br><br><br>
+Para poder desplegar los simbolos:<br>
+<center><font color="blue">\$, \@</font> y <font color="blue">\&</font> </center>
+<br><br>
+Se debe de dar escape a los simbolos de la siguiente manera:<br>
+<center><font color="blue"> \\\$, \\\@, \\\& </font></center>
+<p>
+<hr>
+</body>
 </html>
+EOF
+
+#En la linea de arriba indicamos que cerramos el campo de
+#codigo HTML
+
+}
+
+
+#EJEMPLO DE HTML imprimiendo linea por linea
+sub html_linea{
+
+#Debemos imprimir linea por line dando escape a las " con \
+print "Content-type: text/html\n\n";
+print "<html><head><title>EJEMPLO DE HTML</title></head>\n";
+print "<body>\n";
+print "<center><h1>HOLA, <font color=\"red\">$nombre</font></h1></center>\n";
+print "<br><br>\n";
+print "Bienvenido a <b>$sitio</b>....<br>\n";
+print "<br>";
+print "donde <b>$lema</b>";
+print "<br><br><br>\n";
+print "Para poder desplegar los simbolos:<br>\n";
+print "<center><font color=\"blue\">\$, \@</font> y <font color=\"blue\">\&</font> </center>\n";
+print "<br><br>\n";
+print "Se debe de dar escape a los simbolos de la siguiente manera:<br>\n";
+print "<center><font color=\"blue\"> \\\$, \\\@, \\\& </font></center>\n";
+print "</body>";
+print "</html>";
+
+}
+
+exit(1);
